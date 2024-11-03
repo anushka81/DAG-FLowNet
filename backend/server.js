@@ -15,11 +15,10 @@ const Node = require('./schemas/node');
 const Edge = require('./schemas/edge');
 const Graph = require('./schemas/graph');
 const GraphConfig = require('./schemas/graphRunConfig');
-const validateGraph = require('./validateGraph');
-const processFunction = require('./processFunction');
-const node = require('./schemas/node');
-const generateRandomRunId = require('./generateUniqueRunId');
-const saveNodeResultToDb = require('./saveNodeResult');
+const validateGraph = require('./helper_functions/validateGraph');
+const processFunction = require('./helper_functions/processFunction');
+const generateRandomRunId = require('./helper_functions/generateUniqueRunId');
+const saveNodeResultToDb = require('./helper_functions/saveNodeResult');
 const Result = require('./schemas/result');
 
 const app = express();
@@ -127,10 +126,10 @@ app.get('/graphs', async (req, res) => {
 });
 
 // Delete graph by id
-app.get('/graphs/:id', async (req, res) => {
+app.delete('/graphs/:id', async (req, res) => {
     try {
         const graph = await Graph.findByIdAndDelete(req.params.id);
-        if (!node) return res.status(404).json({ message: 'Graph not found' });
+        if (!graph) return res.status(404).json({ message: 'Graph not found' });
         res.json({ message: 'Graph deleted successfully' });
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -147,7 +146,7 @@ app.post('/validate-graph/:id', async (req, res) => {
         2. validate src_node and dst_node
         3. checks for duplicate edges
         4. check for islands == 1
-        5. checks for cycles/loops using topological sort
+        5. checks for cycles/self-loops using topological sort
     */
     await validateGraph(graph);
     res.json({ message: 'Graph validated successfully' });
