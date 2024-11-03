@@ -5,19 +5,16 @@ Welcome to the **DAG FlowNet**! Built on **Node.js** and **Express**, and powere
 ![Node.js](https://img.shields.io/badge/Node.js-6DA55F?style=for-the-badge&logo=nodedotjs&logoColor=white) ![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 
 ## 📋 Table of Contents
-- [✨ Features](#-features)
+- [✨ Features & Implementation Guide](#-features)
 - [🔧 Installation](#-installation)
-- [⚙️ Configuration](#-configuration)
 - [📡 API Endpoints](#api-endpoints)
   - [🔗 Node Endpoints](#node-endpoints)
   - [🔗 Edge Endpoints](#edge-endpoints)
   - [🔗 Graph Endpoints](#graph-endpoints)
   - [🔗 Graph Execution Endpoints](#graph-execution-endpoints)
 - [🛠 Helper Functions](#helper-functions)
-- [⚠️ Error Handling](#error-handling)
-- [📄 License](#license)
 
-## ✨ Features
+## ✨ Features & Implementation Guide
 - Create and manage **nodes** and **edges** with ease.
 - Validate graphs to ensure no cycles or islands exist.
 - Execute graphs in a topological order based on custom configurations.
