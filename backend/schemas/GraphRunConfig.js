@@ -1,4 +1,7 @@
-const graphRunConfigSchema = new Schema({
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
+
+const graphConfig = new Schema({
     root_inputs: {
         type: Map,
         of: new Schema({
@@ -19,4 +22,5 @@ const graphRunConfigSchema = new Schema({
     disable_list: { type: [String], default: [] },  // List of disabled node_ids (mutually exclusive with enable_list)
 });
 
-module.exports = mongoose.model('GraphRunConfig', graphRunConfigSchema);
+const GraphConfig = mongoose.model('GraphConfig', graphConfig);
+module.exports = GraphConfig;

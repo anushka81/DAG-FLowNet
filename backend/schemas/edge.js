@@ -7,6 +7,7 @@ const edgeSchema = new Schema({
     src_to_dst_data_keys: {
         type: Map,
         of: String, // Maps `data_out` key of src_node to `data_in` key of dst_node
+        default : {}
     },
 });
 
