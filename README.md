@@ -1,6 +1,6 @@
-# 🚀 Graph Processing API
+# 🚀 DAG FlowNet
 
-Welcome to the **Graph Processing API**! This powerful and flexible API allows you to create, manage, and execute graphs with ease. Built on **Node.js** and **Express**, and powered by **MongoDB**, this API is perfect for anyone looking to work with graph data structures.
+Welcome to the **DAG FlowNet**! Built on **Node.js** and **Express**, and powered by **MongoDB**.
 
 ![Node.js](https://img.shields.io/badge/Node.js-6DA55F?style=for-the-badge&logo=nodedotjs&logoColor=white) ![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 
@@ -27,7 +27,7 @@ Welcome to the **Graph Processing API**! This powerful and flexible API allows y
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/graph-processing-api.git
+   git clone https://github.com/anushka81/DAG-FLowNet.git
    cd graph-processing-api
    ```
 
@@ -43,15 +43,9 @@ Welcome to the **Graph Processing API**! This powerful and flexible API allows y
    ```bash
    node server.js
    ```
-   Your server will be live at `http://localhost:3000`! 🎉
+   Your server will be live at `http://localhost:5000`! 🎉
 
-## ⚙️ Configuration
-
-- **MongoDB URI**: Ensure to update the MongoDB URI in the source code for database connectivity.
-- **Body Parser**: Utilizing `body-parser` for parsing JSON request bodies.
-- **Priority Queue**: Implemented for efficient topological processing of graphs.
-
-## 📡 API Endpoints
+## ⚙️ API Endpoints
 
 ### 🔗 Node Endpoints
 - **POST /nodes**: Create a new node.
@@ -80,27 +74,7 @@ Welcome to the **Graph Processing API**! This powerful and flexible API allows y
 - **generateUniqueRunId**: Creates a unique `runId` for tracking executions.
 - **saveNodeResultToDb**: Stores results of node processing in MongoDB.
 
-## ⚠️ Error Handling
-
-The API is designed to return meaningful HTTP status codes for various errors:
-- **400**: Bad request or validation errors (e.g., invalid node ID).
-- **404**: Resource not found (e.g., nonexistent node/graph).
-- **500**: Internal server error.
-
-## 📄 License
-
-This project is licensed under the MIT License. Feel free to contribute and make it better!
-
 ---
 
-Thank you for checking out the **Graph Processing API**! For any questions or suggestions, feel free to reach out. Happy coding! 🌟
+Thank you for checking out the **DAG FlowNet**! For any questions or suggestions, feel free to reach out. Happy coding! 🌟
 ```
-
-### Enhancements Made:
-- **Badges**: Added to give a visual indication of the technologies used.
-- **Emojis**: Used throughout the document to make it more engaging and friendly.
-- **Sections and Subheadings**: Organized for easy navigation and understanding.
-- **Explanatory Text**: Enhanced descriptions for features and functionality.
-- **Call to Action**: Encouragement to contribute or reach out for questions.
-
-This `README.md` should help showcase your project more effectively and attractively! Adjust any specifics as needed based on your project details.
