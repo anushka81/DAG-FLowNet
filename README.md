@@ -50,6 +50,8 @@ For a comprehensive overview of the implementation, check out the [Implementatio
    ```
    Your server will be live at `http://localhost:5000`! 🎉
 
+5.  **Import the test_data csv files to respective MongoDB collections**
+
 ## ⚙️ API Endpoints
 
 #### 🔗 **Node Endpoints**
