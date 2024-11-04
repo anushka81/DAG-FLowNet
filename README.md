@@ -17,7 +17,7 @@ Welcome to the **DAG FlowNet**! Built on **Node.js** and **Express**, and powere
 ---
 ## 👩🏼‍💻 Demo
 
-Watch the demo [here]([https://youtu.be/G-FJAd3bnds](https://youtu.be/_rHH_r8vPxU)).
+Watch the demo [here](https://youtu.be/_rHH_r8vPxU).
 
 ## ✨ Features & Implementation Guide
 
