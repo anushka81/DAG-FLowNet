@@ -14,11 +14,23 @@ Welcome to the **DAG FlowNet**! Built on **Node.js** and **Express**, and powere
   - [🔗 Graph Execution Endpoints](#graph-execution-endpoints)
 - [🛠 Helper Functions](#helper-functions)
 
+Here’s the revised version with a focus on the informative Result schema and highlighting the implementation guide at the beginning:
+
+---
+
 ## ✨ Features & Implementation Guide
-- Create and manage **nodes** and **edges** with ease.
-- Validate graphs to ensure no cycles or islands exist.
-- Execute graphs in a topological order based on custom configurations.
-- Built with a focus on extensibility and performance.
+
+For a comprehensive overview of the implementation, check out the [Implementation Guide](https://docs.google.com/document/d/1BRCRPmDuuuDzebZkeF0TLpaTjq9ol43PZTYCPOjqQsE/edit?usp=sharing).
+
+### Key Optimizations:
+- **Graph Validation:** Efficient checks for edge compatibility and connectivity with O(N + E) complexity.
+- **BFS Execution:** Utilizes a priority queue for efficient node processing in alphabetical order.
+- **Informative Result Schema:** The Result schema captures all relevant data, including inputs, outputs, and processing status, making it easy to track and access results.
+-  **Memory Management:** Implements space-efficient data structures to minimize overhead during processing.
+
+--- 
+
+Let me know if you’d like any more changes!
 
 ## 🔧 Installation
 
