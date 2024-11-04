@@ -161,7 +161,6 @@ app.post('/run-graph/:id', async (req, res) => {
 
         const { enable_list, disable_list, root_inputs, data_overwrites } = graphConfig;
         console.log("Received request to run graph with ID:", graphId);
-        console.log("Graph configuration:", JSON.stringify(graphConfig, null, 2));
 
         // Step 1: Validate Config File
         if (enable_list.length > 0 && disable_list.length > 0) {
@@ -219,14 +218,14 @@ app.post('/run-graph/:id', async (req, res) => {
         for (const node of graph.nodes) {
             nodesMap[node.node_id] = {
                 node_id: node.node_id,
-                data_in: new Map(),           // Initialize data_in as a Map
-                data_out: node.data_out || {}, // Use data_out from the node or default to an empty object
-                paths_in: node.paths_in || [], // Use paths_in from the node or default to an empty array
-                paths_out: node.paths_out || [], // Use paths_out from the node or default to an empty array
-                status: "unprocessed",         // Set default status
-                is_enabled: null,               // Set default is_enabled
-                level: null,                   // Set default level
-                timestamp: Date.now()         // Set the current timestamp
+                data_in: new Map(),          
+                data_out: node.data_out || {}, 
+                paths_in: node.paths_in || [], 
+                paths_out: node.paths_out || [], 
+                status: "unprocessed",         
+                is_enabled: null,               
+                level: null,                  
+                timestamp: Date.now()         
             };
             if (enable_list.length > 0) {
                 if (enable_list.includes(node.node_id)) {
@@ -493,9 +492,10 @@ app.get('/graphs/level-wise/:runId', async (req, res) => {
             if (level != null && !levels[level]) {
                 levels[level] = []; // Initialize the level array if it doesn't exist
             }
-            levels[level].push({ nodeId, data: graphResults["node_results"].get(nodeId)});
+            if(level != null){
+                levels[level].push({ nodeId, data: graphResults["node_results"].get(nodeId)});
+            }
         }
-
         console.log(levels);
         // Sort levels and format response in level order
         const levelWiseTraversal = Object.keys(levels)

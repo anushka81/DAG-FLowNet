@@ -1,5 +1,4 @@
 const Result = require('../schemas/result');
-
 async function saveNodeResultToDb(runId, graphId, nodesMap, graphConfig, processedNodes) {
     try {
         // Prepare node results by iterating over nodesMap
@@ -19,11 +18,8 @@ async function saveNodeResultToDb(runId, graphId, nodesMap, graphConfig, process
                 level: nodeData.level,
                 is_enabled: nodeData.is_enabled,
             });
-            console.log("island1",nodeData.is_enabled);
-            console.log("island2",nodeData);
-            if(nodeData.is_enabled == false) {
 
-                console.log("island3",islands);
+            if(nodeData.is_enabled == false) {
                 if (!islands[islandIndexDisabled]) {
                     console.log("island",islands[islandIndexDisabled]);
                     islands[islandIndexDisabled] = [];
@@ -38,7 +34,6 @@ async function saveNodeResultToDb(runId, graphId, nodesMap, graphConfig, process
                 islands[islandIndexEnabled].push(nodeId);
             }
         }
-        console.log("island223",islands);
         // Create a new Result document with the run details
         const result = new Result({
             run_id: runId,
