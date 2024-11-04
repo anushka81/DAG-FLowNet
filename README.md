@@ -14,8 +14,6 @@ Welcome to the **DAG FlowNet**! Built on **Node.js** and **Express**, and powere
   - [🔗 Graph Execution Endpoints](#graph-execution-endpoints)
 - [🛠 Helper Functions](#helper-functions)
 
-Here’s the revised version with a focus on the informative Result schema and highlighting the implementation guide at the beginning:
-
 ---
 
 ## ✨ Features & Implementation Guide
@@ -29,8 +27,6 @@ For a comprehensive overview of the implementation, check out the [Implementatio
 -  **Memory Management:** Implements space-efficient data structures to minimize overhead during processing.
 
 --- 
-
-Let me know if you’d like any more changes!
 
 ## 🔧 Installation
 
