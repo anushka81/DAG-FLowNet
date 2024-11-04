@@ -33,7 +33,7 @@ For a comprehensive overview of the implementation, check out the [Implementatio
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/anushka81/DAG-FLowNet.git
-   cd graph-processing-api
+   cd DAG-FLowNet
    ```
 
 2. **Install dependencies:**
