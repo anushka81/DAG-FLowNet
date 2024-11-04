@@ -15,6 +15,9 @@ Welcome to the **DAG FlowNet**! Built on **Node.js** and **Express**, and powere
 - [🛠 Helper Functions](#helper-functions)
 
 ---
+## 👩🏼‍💻 Demo
+
+Watch the demo [here]([https://youtu.be/G-FJAd3bnds](https://youtu.be/_rHH_r8vPxU)).
 
 ## ✨ Features & Implementation Guide
 
@@ -50,7 +53,7 @@ For a comprehensive overview of the implementation, check out the [Implementatio
    ```
    Your server will be live at `http://localhost:5000`! 🎉
 
-5.  **Import the test_data csv files to respective MongoDB collections**
+5.  **Import the test_data csv files to respective MongoDB collections.**
 
 ## ⚙️ API Endpoints
 
