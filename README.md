@@ -44,25 +44,34 @@ Welcome to the **DAG FlowNet**! Built on **Node.js** and **Express**, and powere
 
 ## ⚙️ API Endpoints
 
-### 🔗 Node Endpoints
+#### 🔗 **Node Endpoints**
 - **POST /nodes**: Create a new node.
 - **GET /nodes**: Retrieve all nodes.
 - **GET /nodes/:id**: Get a specific node by its ID.
 - **PUT /nodes/:id**: Update a specific node by its ID.
 - **DELETE /nodes/:id**: Remove a node by its ID.
 
-### 🔗 Edge Endpoints
+#### 🔗 **Edge Endpoints**
 - **POST /edges**: Create a new edge.
 - **GET /edges**: Retrieve all edges.
 
-### 🔗 Graph Endpoints
+#### 🔗 **Graph Endpoints**
 - **POST /graphs**: Create or update a new graph.
 - **GET /graphs**: Retrieve all graphs.
 - **DELETE /graphs/:id**: Delete a graph by its ID.
 
-### 🔗 Graph Execution Endpoints
+#### 🔗 **Graph Execution Endpoints**
 - **POST /validate-graph/:id**: Validate the structure and integrity of a graph, checking for cycles, islands, and more.
 - **POST /run-graph/:id**: Execute a graph based on its configuration, processing nodes in topological order.
+
+#### 🔗 **Graph Results Endpoints**
+- **GET /graphs/results/:nodeId/:runId**: Retrieve the output data for a specific node and run ID.
+- **GET /graphs/leaf-outputs/:runId**: Get outputs for leaf nodes in the graph corresponding to a specific run ID.
+- **GET /graphs/level-wise/:runId**: Fetch level-wise traversal of the graph for the given run ID.
+- **GET /graphs/topological-order/:runId**: Retrieve the topological order of the graph based on the run ID.
+- **GET /graphs/islands/:runId**: Get the islands present in the graph for a specific run ID.
+
+---
 
 ## 🛠 Helper Functions
 
