@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const PriorityQueue = require('js-priority-queue');
 
 // MongoDB connection
-const mongoURI = 'mongodb+srv://test-user-fYikrmxbpHz7C098:fYikrmxbpHz7C098@dag.l9usg.mongodb.net/';
+const mongoURI = 'YOUR_MONGODB_CONNECTION_STRING';
 mongoose.connect(mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
