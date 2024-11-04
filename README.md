@@ -95,5 +95,4 @@ For a comprehensive overview of the implementation, check out the [Implementatio
 
 ---
 
-Thank you for checking out the **DAG FlowNet**! For any questions or suggestions, feel free to reach out. Happy coding! 🌟
-```
+Thank you for checking out the **DAG FlowNet**! For any questions or suggestions, feel free to reach out at anniegirdhar08@gmail.com . Happy coding! 🌟
