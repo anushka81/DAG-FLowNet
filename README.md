@@ -1,3 +1,5 @@
+---
+
 # 🚀 DAG FlowNet
 
 Welcome to the **DAG FlowNet**! Built on **Node.js** and **Express**, and powered by **MongoDB**.
@@ -5,16 +7,19 @@ Welcome to the **DAG FlowNet**! Built on **Node.js** and **Express**, and powere
 ![Node.js](https://img.shields.io/badge/Node.js-6DA55F?style=for-the-badge&logo=nodedotjs&logoColor=white) ![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 
 ## 📋 Table of Contents
-- [✨ Features & Implementation Guide](#-features)
+- [👩🏼‍💻 Demo](#-demo)
+- [✨ Features & Implementation Guide](#-features--implementation-guide)
 - [🔧 Installation](#-installation)
-- [📡 API Endpoints](#api-endpoints)
-  - [🔗 Node Endpoints](#node-endpoints)
-  - [🔗 Edge Endpoints](#edge-endpoints)
-  - [🔗 Graph Endpoints](#graph-endpoints)
-  - [🔗 Graph Execution Endpoints](#graph-execution-endpoints)
-- [🛠 Helper Functions](#helper-functions)
+- [⚙️ API Endpoints](#️-api-endpoints)
+  - [🔗 Node Endpoints](#-node-endpoints)
+  - [🔗 Edge Endpoints](#-edge-endpoints)
+  - [🔗 Graph Endpoints](#-graph-endpoints)
+  - [🔗 Graph Execution Endpoints](#-graph-execution-endpoints)
+  - [🔗 Graph Results Endpoints](#-graph-results-endpoints)
+- [🛠 Helper Functions](#-helper-functions)
 
 ---
+
 ## 👩🏼‍💻 Demo
 
 Watch the demo [here](https://youtu.be/_rHH_r8vPxU).
@@ -95,5 +100,6 @@ For a comprehensive overview of the implementation, check out the [Implementatio
 
 ---
 
-Thank you for checking out the **DAG FlowNet**! For any questions or suggestions, feel free to reach out. Happy coding! 🌟
-```
+Thank you for checking out the **DAG FlowNet**! For any questions or suggestions, feel free to reach out at anniegirdhar08@gmail.com. Happy coding! 🌟
+
+---
