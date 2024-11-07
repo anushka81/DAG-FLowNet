@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Node = require('../schemas/node');
 const Edge = require('../schemas/edge');
 
-const validateGraph = async (graph) => {
+const validateGraph = async (graph, root_inputs) => {
     console.log('Starting graph validation');
 
     // Step 1: Validate the nodes and edges
@@ -45,43 +45,51 @@ const validateGraph = async (graph) => {
     }
     console.log('No duplicate edges detected in graph');
 
-    // Step 4: Check for islands (single connected component)
-    console.log('Step 4: Checking for islands (single connected component)');
+    // Step 4: Check for islands (single connected component) with multi-source BFS
+    console.log('Step 4: Checking for islands (single connected component) with multi-source BFS');
+
+    // Ensure at least one root node is provided
+    if (root_inputs.length < 1) {
+        throw new Error('At least one root node must be specified');
+    }
+
     const visited = new Set();
     const adjacencyList = {};
 
+    // Build adjacency list
     nodes.forEach(node => {
         adjacencyList[node._id] = [];
     });
-
     edges.forEach(edge => {
         adjacencyList[edge.src_node].push(edge.dst_node);
     });
 
     console.log('Adjacency list created:', adjacencyList);
-    const dfs = (node) => {
-        visited.add(node.toString()); // Convert node ID to string before adding to the Set
+
+    // BFS from each root node
+    const bfsQueue = [...root_inputs]; 
+    bfsQueue.forEach(root => visited.add(root)); // Mark all roots as visited initially
+    while (bfsQueue.length > 0) {
+        const node = bfsQueue.shift();
         const neighbors = adjacencyList[node] || [];
         neighbors.forEach(neighbor => {
-            if (!visited.has(neighbor.toString())) {
-                dfs(neighbor);
+            const neighborId = neighbor.toString();
+            if (!visited.has(neighborId)) {
+                visited.add(neighborId);
+                bfsQueue.push(neighborId);
             }
         });
-    };
-
-    // Start DFS from the first node
-    if (nodes.length > 0) {
-        console.log(`Starting DFS from node ${nodes[0]._id}`);
-        dfs(nodes[0]._id);
     }
+
     console.log('Visited nodes:', visited);
 
     // Check if all nodes were visited
     if (visited.size !== nodes.length) {
-        console.error('Validation Error: Graph contains islands; not all nodes are reachable');
-        throw new Error('Graph contains islands; not all nodes are reachable from one another');
+        console.error('Validation Error: Graph contains islands; not all nodes are reachable from the specified root inputs');
+        throw new Error('Graph contains islands; not all nodes are reachable from the specified root inputs');
     }
-    console.log('Graph is a single connected component');
+
+    console.log('Graph is a single connected component based on root inputs');
 
     // Step 5: Check for cycles using topological sort
     console.log('Step 5: Checking for cycles using topological sort');
@@ -94,7 +102,7 @@ const validateGraph = async (graph) => {
 
     const queue = [];
     nodes.forEach(node => {
-        if (!indegree.has(node._id.toString())) { 
+        if (!indegree.has(node._id.toString())) {
             queue.push(node._id.toString());
         }
     });
@@ -108,14 +116,14 @@ const validateGraph = async (graph) => {
             const neighborId = neighbor.toString(); // Convert ObjectId to string
             console.log('Processing node', node, 'with neighbor', neighborId);
             indegree.set(neighborId, (indegree.get(neighborId) || 0) - 1);
-            
+
             if (indegree.get(neighborId) === 0) {
                 queue.push(neighborId);
             }
         });
         console.log('Queue after processing node', node, ':', queue);
     }
-    
+
 
     if (count !== nodes.length) {
         console.error('Validation Error: Graph contains a cycle');

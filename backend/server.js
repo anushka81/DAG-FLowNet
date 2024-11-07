@@ -102,6 +102,17 @@ app.get('/edges', async (req, res) => {
     }
 });
 
+// Delete Edge by id
+app.delete('/edges/:id', async (req, res) => {
+    try {
+        const edge = await Edge.findByIdAndDelete(req.params.id);
+        if (!edge) return res.status(404).json({ message: 'edge not found' });
+        res.json({ message: 'edge deleted successfully' });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
+
 // CRUD APIs for Graphs
 
 // Create or update a new graph
@@ -139,16 +150,18 @@ app.delete('/graphs/:id', async (req, res) => {
 // Validate the graph before execution
 app.post('/validate-graph/:id', async (req, res) => {
     const graph = await Graph.findById(req.params.id).populate('nodes edges');
+    const root_inputs = await req.body;
 
     // Validate the graph before execution
     /* following checks for graph:
         1. validates the nodes and edges
         2. validate src_node and dst_node
         3. checks for duplicate edges
-        4. check for islands == 1
+        4. check for islands == 1, takes multiple roots into account.
         5. checks for cycles/self-loops using topological sort
     */
-    await validateGraph(graph);
+    const rootNodeIds = root_inputs.root_inputs;
+    await validateGraph(graph, rootNodeIds);
     res.json({ message: 'Graph validated successfully' });
 });
 
@@ -370,7 +383,16 @@ app.post('/run-graph/:id', async (req, res) => {
         }
         console.log("Processed nodes:", processedNodes);
         console.log("Nodes map:", nodesMap);
-
+        
+        // Nodes that are not processed will be marked as disabled.
+        for(const nodeId in nodesMap) {
+            console.log(`NodeId ${nodeId}`);   
+            if(!processedNodes.has(nodeId)) {
+                console.log(`Node ${nodeId} not processed`);
+                console.log("initial enabled or not",nodesMap[nodeId].is_enabled);
+                nodesMap[nodeId].is_enabled = false;
+            }
+        }
         // Clean metadata from nodesMap data_in
         // metadata keys to exclude
         const metadataKeys = new Set([

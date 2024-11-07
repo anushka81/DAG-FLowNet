@@ -10,7 +10,6 @@ const nodeResultSchema = new Schema({
     timestamp: { type: Date, default: Date.now }, // Time when the node processed data
     status: { type: String, enum: ['unprocessed', 'processed', 'unknown'], default: 'unprocessed' }, // Processing status
     level: { type: Number, default: null }, // Level of the node in traversal
-    topological_order: { type: [String], default: null }, // Topological order of the node
     is_enabled: { type: Boolean, default: null }, // Node enablement status
 });
 
